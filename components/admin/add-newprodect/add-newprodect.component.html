@@ -1,0 +1,35 @@
+
+<!-- <button (click)="addnewprodect()" class="btn btn-danger">Add new prodect</button> --><form class="row g-3"   >
+<form #prodectform="ngForm"  (ngSubmit)="addnewprodect() ">
+    
+    <div class="col-md-6">
+      <label  for="name" class="form-label">name</label>
+      <input type="text" #prodnameinput = "ngModel"
+       class="form-control" id="name" [(ngModel)]="newpr.name" required pattern="[A-Za-z]{3,15}">
+    <div class="alert alert-danger "name="name" [hidden]="prodnameinput.valid ||prodnameinput.untouched"> name is required and must be least 3 carctar</div>
+    </div>
+     
+    <div class="col-6">
+        <label for="Quantity" class="form-label">Quantity</label>
+        <input type="number" class="form-control"name="Quantity" id="Quantity" [(ngModel)]="newpr.Quantity">
+      </div>
+    <div class="col-md-6">
+      <label for="price" class="form-lab
+      el">price</label>
+      <input type="number" class="form-control"name="price" id="price"[(ngModel)]="newpr.Price">
+    </div>
+    <label for="cat">Select a category :</label><br>
+    <select id="cat" name="cat" [(ngModel)]="newpr.CateogryID">
+        <option value="0">All</option>
+        <option *ngFor="let cat of newcat" [value]="cat.id">{{cat.name}}</option>
+    </select> 
+    
+     
+   
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary" [disabled]="prodectform.invalid">Sign in</button>
+    </div>
+  </form> 
+<!-- <h3 class="bg-black "> test:{{newpr | json}}</h3> -->
+<!-- {{prodnameinput.className |json}} -->
+<h2>{{prodnameinput.errors |json}}</h2>

@@ -1,0 +1,48 @@
+<!-- <p>order-parent works!</p> -->
+<div>
+
+    <label for="">select category</label><br><br>
+    <select name="cat" id="cat " [(ngModel)]="selectcategoryId" class="form-control">
+        <option value="0">All</option>
+        <option *ngFor="let cat of catlist " [value]="cat.id ">{{cat.name}} </option>
+    </select>
+    <!-- <h2 class ="bg-danger"> selct id {{selectcategoryId}} </h2> -->
+
+</div>
+<!-- view child
+<div>
+
+    <label>user name</label>
+    <input type="text" class="form-control" name="user" id="user" #username>
+</div> -->
+<app-prodect [resevcateid]="selectcategoryId" (tatalpricechane)=" ontatilprice($event)"></app-prodect>
+<h2> total price {{resevordertotalprice}}</h2>
+<table class="table table-striped table-hover">
+
+    <thead>
+        <tr>
+
+            <th scope="col">name</th>
+            <th scope="col"> price</th>
+
+            <th scope="col"> count</th>
+            <th scope="col"> totalPrice</th>
+            <th scope="col"> delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let pro of
+       data">
+
+
+            <td> {{pro.name}}</td>
+            <td> {{pro.Price}}</td>
+            <td>{{pro.Quantity}}</td>
+            <td>
+                {{resevordertotalprice}}
+            </td>
+        </tr>
+    </tbody>
+</table>

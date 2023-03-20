@@ -1,0 +1,22 @@
+<div class="card" style="width: 18rem ;" *ngIf="prd?.id">
+    <img [src]="prd?.Img" class="card-img-top">
+    <input value={{prd?.Img}} #Img>
+    <div class="card-body">
+
+        <h2 class="card-title">name: </h2>
+        <input value={{prd?.name}} #name>
+        <h3 class="card-title">price: </h3>
+        <input value={{prd?.Price}} #price>
+        <h4 class="card-title">quantity:</h4>
+        <input value={{prd?.Quantity}} #Quantity>
+        <h4 class="card-title">catagiry:</h4>
+        <input value={{prd?.CateogryID}} #catagiry>
+    </div>
+    <div>
+
+
+        <button class="btn btn-dark" (click)="backk()"> go back </button>
+    </div>
+    <button (click)="edit(name.value,price.value,Quantity.value,catagiry.value,Img.value)">EDIT</button>
+</div>
+<br>

@@ -1,0 +1,102 @@
+<!-- <section class="center">
+
+    <h1> my profile</h1>
+
+    
+</section> -->
+<!-- <h3>{{ ClientName}}</h3>
+<h2>{{store.name}}</h2>
+<img *ngIf="showimg" [src]="store.logo">
+<h3 *ngIf="!showimg">Thanks for purchasing  {{ClientName}} </h3>
+
+<br>
+<button  (click)="tag()"class="btn btn-success" >TAG</button>
+
+ <h3 >We offer an explicit discount of {{Discount1}}</h3> 
+ <h3 [hidden]="Discount">We offer an explicit discount of {{Discount}}</h3>  -->
+<h4 > today is:{{date| date: 'fullDate'}}</h4>
+<!-- <input type="taxt" #national> -->
+
+<!-- <div><button (click)="nationa(d.value)">day </button></div> -->
+<!-- <h4>national is:{{'national'| nationalid: 'national' }}</h4> -->
+
+<!-- day6 -->
+<button class="btn btn-dark" [routerLink]="['/newprodect']">add prodect</button>
+<table class="table table-striped table-hover">
+
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col"> Quantity</th>
+            <th scope="col"> Price</th>
+            <th scope="col"> Img</th>
+            <th scope="col">details</th>
+            <th scope="col"> delet</th>
+            <th scope="col">edit</th>
+            <th scope="col"> count</th>
+           
+
+            <th scope="col"> Buy</th>
+       </tr>
+    </thead>
+    <tbody>
+        <!-- <tr *ngFor="let pro of
+            ProductList; let i=index" [class.bg-warning]=" pro.Quantity==1"> -->
+        <!-- <tr *ngFor="let pro of
+            ProductList; let i=index" [style.background-color]=" pro.Quantity==1? 'yellow':' default'"[hidden]="pro.Quantity==0"> -->
+        <tr *ngFor="let pro of
+            prouctlistcat; let i=index" [style.background-color]=" pro.Quantity==1? 'yellow':' default'"
+            [hidden]="pro.Quantity==0">
+
+            <td> {{i+1}}</td>
+            <td> {{pro.name}}</td>
+            <td> {{pro.Quantity}}</td>
+            <td> {{pro.Price |currency:'CAD':'symbol'}}</td>
+            <td><img [src]="pro.Img" style="width:80px; height: 80px;"appBorderBox="brown" bordercl="blue"> </td>
+            <td><button  (click)="opendetalise(pro.id)" class=" btn btn-primary">details</button></td>
+            <td><button class="btn btn-danger" (click)="delet(pro.id)">delet</button></td>
+            <td><button class="btn btn-danger" (click)="edit(pro.id)">edit</button></td>
+            <td><input type="number" class="form-control" #itemcount></td>
+            <td><button (click)="decrease (pro)" class="btn btn-primary" [hidden]="pro.Quantity==0"
+                    (click)="upadettotalprice(pro.Price,itemcount.value)">buy</button></td>
+        </tr>
+    </tbody>
+
+</table>
+
+
+
+<!-- <h2  class="bg-danger">  total price test :{{ordertotalprice}}</h2> -->
+<form class="row g-3"   >
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">id</label>
+        <input type="number" class="form-control" id="name" #id>
+      </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">name</label>
+      <input type="text" class="form-control" id="name" #name>
+    </div>
+    <div class="col-md-6">
+      <label for="price" class="form-lab
+      el">price</label>
+      <input type="number" class="form-control" id="price" #price>
+    </div>
+    <div class="col-6">
+      <label for="inputAddress" class="form-label">Img</label>
+      <input type="text" class="form-control" id="inputAddress"#Img >
+    </div>
+    <div class="col-6">
+      <label for="Quantity" class="form-label">Quantity</label>
+      <input type="number" class="form-control" id="Quantity" #Quantity>
+    </div>
+    <div class="col-6">
+    <label for="Quantity" class="form-label">catgaryid</label>
+    <input type="number" class="form-control" id="catgaryid" #CateogryID>
+  </div>
+   
+    <div class="col-12">
+      <button (click)="addcare(+id.value, name.value,+Quantity.value,+price.value,Img.value,+ CateogryID.value)" type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+  </form>
+  

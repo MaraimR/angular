@@ -1,0 +1,16 @@
+<h3>{{ ClientName}}</h3>
+<h2>{{store.name}}</h2>
+<img *ngIf="showimg" [src]="store.logo">
+<h3 *ngIf="!showimg">Thanks for purchasing {{ClientName}} </h3>
+
+<br>
+<button (click)="tag()" class="btn btn-success">TAG</button>
+
+<h3>We offer an explicit discount of {{Discount1}}</h3>
+<h3 [hidden]="Discount">We offer an explicit discount of {{Discount}}</h3>
+
+<h4>My national ID is: {{nationalID}}</h4>
+<h5>My national ID after pipe is {{nationalID |nationalID}}</h5>
+<h6>my cresdit card value is {{creditCard}}</h6>
+<h6>my cresdit card value after pipe is {{creditCard|creditCard}}</h6>
+<!-- </div> -->

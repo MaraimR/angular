@@ -1,0 +1,25 @@
+
+<div class="card" style="width: 18rem ;" *ngIf="prd?.id">
+    <img [src] = "prd?.Img"  class = "card-img-top">
+    <div class="card-body">
+
+        <h2 class="card-title">name:{{prd?.name}} </h2>
+        <h3 class="card-title">price: {{prd?.Price}}</h3>
+        <h4 class="card-title">quantity: {{prd?.Quantity}}</h4>
+    </div>
+    <div>
+    <button type="button" class="btn btn-warning" (click)="privese()" [disabled]="currentindex==0">privese</button>
+
+<button type="button" class="btn btn-danger" (click)="next() "[disabled]="currentindex==prodectidlist[prodectidlist.length-1]">next</button>
+<button  class="btn btn-dark"(click)="backk()"> go back </button>
+    </div>
+    
+</div>
+<br>
+
+<div>
+<label>search prodect by name</label>
+<input type="text"class= "form-Control" name="name" id="name" #name>
+
+<button  type="button" class="btn btn-danger" (click)="searchprodect(name.value)">search</button>
+</div>
